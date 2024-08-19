@@ -103,15 +103,16 @@
 </head>
 
 <body>
-<div class="card">
-  <h1>Games</h1>
-  <p>Enjoy!</p>
-</div>
-
+      
+      <div class="card">
+        <h1>Games</h1>
+        <p>Enjoy!</p>
+       </div>
+<div>
    <script>
         const sites = [
             {
-                title: "Game 1",
+                title: "Slope",
                 link: "/gmes/slope/index.html",
                 image: "/data/slope-image.png"
             },
@@ -151,12 +152,13 @@
             siteDiv.innerHTML = `
                 <img src="${site.image}" alt="${site.title} Preview">
                 <h3>${site.title}</h3>
-                <a href="${site.link}">Play</a>
+                <a href="${site.link}">Play Now</a>
             `;
 
             container.appendChild(siteDiv);
         });
     </script>
+</div>
 
 </body>
 
