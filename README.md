@@ -1,3 +1,3 @@
-# totallyclasswork
+# Galenite
 Just a fun game website i made even though im terrible at coding...
 <br>hope yall have fun tho
