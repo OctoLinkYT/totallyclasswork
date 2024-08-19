@@ -8,7 +8,9 @@
 <title>Home</title>
 <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/classroom/favicon.png">
 <style>
-  * {  font=family: monospace }
+body {
+ font-family: monospace;
+}
 
 footer {
     background-color: #333; /* Dark background color */
@@ -16,6 +18,9 @@ footer {
     padding: 20px 0; /* Padding on top and bottom */
     text-align: center; /* Center align the text */
     border-top: 5px solid #444; /* Top border to distinguish the footer */
+    position: fixed; /* Fixes the footer to the bottom */
+    bottom: 0; /* Aligns it to the bottom of the page */
+    width: 100%; /* Ensures it spans the full width of the page */
 }
 
 footer a {
