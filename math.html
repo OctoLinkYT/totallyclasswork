@@ -107,6 +107,57 @@
   <h1>Games</h1>
   <p>Enjoy!</p>
 </div>
+
+   <script>
+        const sites = [
+            {
+                title: "Game 1",
+                link: "/gmes/slope/index.html",
+                image: "/data/slope-image.png"
+            },
+            {
+                title: "Game 2",
+                link: "#",
+                image: "https://via.placeholder.com/150x100.png?text=Game+2+Preview"
+            },
+            {
+                title: "Game 3",
+                link: "#",
+                image: "https://via.placeholder.com/150x100.png?text=Game+3+Preview"
+            },
+            {
+                title: "Game 4",
+                link: "#",
+                image: "https://via.placeholder.com/150x100.png?text=Game+4+Preview"
+            },
+            {
+                title: "Game 5",
+                link: "#",
+                image: "https://via.placeholder.com/150x100.png?text=Game+5+Preview"
+            },
+            {
+                title: "Game 6",
+                link: "#",
+                image: "https://via.placeholder.com/150x100.png?text=Game+6+Preview"
+            }
+        ];
+
+        const container = document.getElementById('site-container');
+
+        sites.forEach(site => {
+            const siteDiv = document.createElement('div');
+            siteDiv.className = 'site-preview';
+
+            siteDiv.innerHTML = `
+                <img src="${site.image}" alt="${site.title} Preview">
+                <h3>${site.title}</h3>
+                <a href="${site.link}">Play</a>
+            `;
+
+            container.appendChild(siteDiv);
+        });
+    </script>
+
 </body>
 
 
