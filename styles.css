@@ -5,9 +5,16 @@ button {
 }
 
 h1 { 
-        font-family: Gill Sans; 
+        font-family: Gill Sans; text-align: Center;
+}
+
+p {
+        font-family: Monaco; text-align: Center;
+
 }
 
 body {  
         background-image: url('sunback.jpg');
 }
+
+
