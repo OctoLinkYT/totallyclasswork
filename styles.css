@@ -1,7 +1,13 @@
-button { background-color: #1c87c9; border: none; color: white; padding: 20px 34px;
+button { 
+        background-color: #1c87c9; border: none; color: white; padding: 20px 34px;
         text-align: center; text-decoration: none; display: inline-block; font-size: 20px;
-        margin: 4px 2px; cursor: pointer; }
+        margin: 4px 2px; cursor: pointer; 
+}
 
-h1 { font-family: Gill Sans; }
+h1 { 
+        font-family: Gill Sans; 
+}
 
-body {  background-image: url('sunback.jpg');
+body {  
+        background-image: url('sunback.jpg');
+}
