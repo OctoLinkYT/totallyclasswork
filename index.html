@@ -42,6 +42,37 @@
             font-size: 1.25rem;
             text-align: center;
         }
+
+        .site-preview {
+            margin: 20px auto;
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 80%;
+            max-width: 500px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .site-preview img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .site-preview h3 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+
+        .site-preview a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .site-preview a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -51,7 +82,47 @@
         <p class="card-text">"I'm going to stand outside. That way, when someone asks, I'm outstanding!"</p>
     </div>
 
-    <p class="outside-card-text">This is where the games would be. I'll code 'em in soon.'</p>
+    <div id="site-container"></div>
+
+    <script>
+        const sites = [
+            {
+                title: "Game 1",
+                link: "#",
+                image: "https://via.placeholder.com/500x300.png?text=Game+1+Preview"
+            },
+            {
+                title: "Game 2",
+                link: "#",
+                image: "https://via.placeholder.com/500x300.png?text=Game+2+Preview"
+            },
+            {
+                title: "Game 3",
+                link: "#",
+                image: "https://via.placeholder.com/500x300.png?text=Game+3+Preview"
+            },
+            {
+                title: "Game 4",
+                link: "#",
+                image: "https://via.placeholder.com/500x300.png?text=Game+4+Preview"
+            }
+        ];
+
+        const container = document.getElementById('site-container');
+
+        sites.forEach(site => {
+            const siteDiv = document.createElement('div');
+            siteDiv.className = 'site-preview';
+
+            siteDiv.innerHTML = `
+                <img src="${site.image}" alt="${site.title} Preview">
+                <h3>${site.title}</h3>
+                <a href="${site.link}">Play Now</a>
+            `;
+
+            container.appendChild(siteDiv);
+        });
+    </script>
 
 </body>
 </html>
