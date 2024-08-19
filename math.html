@@ -1,11 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-      <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/classroom/favicon.png">
     <title>Home</title>
-  <style>
-         body, html {
+    <style>
+        body, html {
             margin: 0;
             padding: 0;
             height: 100%;
@@ -99,22 +100,26 @@
             border: none; /* No border */
             border-radius: 8px; /* Rounded corners */
         }
-  </style>
+    </style>
 </head>
-
 <body>
-      
-      <div class="card">
-        <h1>Games</h1>
-        <p>Enjoy!</p>
-       </div>
-<div>
-   <script>
+
+    <div class="card">
+        <h1>All Games</h1>
+        <p class="card-text">Enjoy!</p>
+           <br>
+        <br>
+        <p style="font-size:16px">⬇ Scroll Down For All Our Games ⬇</p>
+    </div>
+
+    <div id="site-container"></div>
+
+    <script>
         const sites = [
             {
                 title: "Slope",
                 link: "/gmes/slope/index.html",
-                image: "/data/slope-image.png"
+                image: "/data/slope-image.jpg"
             },
             {
                 title: "Game 2",
@@ -158,9 +163,10 @@
             container.appendChild(siteDiv);
         });
     </script>
-</div>
+    
 
 </body>
+</html>
 
 
 
