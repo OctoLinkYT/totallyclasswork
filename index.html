@@ -15,7 +15,6 @@
         }
 
         .card {
-            background-color: linear-gradient(to right, #800080, #000000);
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -101,11 +100,37 @@
             border: none; /* No border */
             border-radius: 8px; /* Rounded corners */
         }
+#gradient
+{
+    border:1px solid black;
+    background: linear-gradient(130deg, #6E11BC, #0C0C0C);
+    background-size: 200% 200%;
+
+    -webkit-animation: Animation 5s ease infinite;
+    -moz-animation: Animation 5s ease infinite;
+    animation: Animation 5s ease infinite;
+}
+
+@-webkit-keyframes Animation {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+@-moz-keyframes Animation {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+@keyframes Animation { 
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
     </style>
 </head>
 <body>
 
-    <div class="card">
+    <div id="gradient" class="card">
         
         <h1>g@len1te</h1>
         <p class="card-text">"I'm going to stand outside. That way, when someone asks, I'm outstanding!"</p>
