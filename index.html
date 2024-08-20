@@ -164,5 +164,53 @@
         <br>
         <p style="font-size:16px">Scroll down to learn more...</p>
     </div>
-    <h2>Our Top Games</h2><a href="/math.html" class="button-link">All Games</a>
+     <script>
+        const sites = [
+            {
+                title: "Slope",
+                link: "/gmes/slope/index.html",
+                image: "/data/slope.png"
+            },
+        ];
+
+        const container = document.getElementById('site-container');
+
+        sites.forEach(site => {
+            const siteDiv = document.createElement('div');
+            siteDiv.className = 'site-preview';
+
+            siteDiv.innerHTML = `
+                <img src="${site.image}" alt="${site.title} Preview">
+                <h3>${site.title}</h3>
+                <a href="${site.link}">Play Now</a>
+            `;
+
+            container.appendChild(siteDiv);
+        });
+    </script> 
+    <a href="/math.html" class="button-link">All Games</a>
+    <script>
+        const sites = [
+            {
+                title: "Slope",
+                link: "/gmes/slope/index.html",
+                image: "/data/slope.png"
+            },
+        ];
+
+        const container = document.getElementById('site-container');
+
+        sites.forEach(site => {
+            const siteDiv = document.createElement('div');
+            siteDiv.className = 'site-preview';
+
+            siteDiv.innerHTML = `
+                <img src="${site.image}" alt="${site.title} Preview">
+                <h3>${site.title}</h3>
+                <a href="${site.link}">Play Now</a>
+            `;
+
+            container.appendChild(siteDiv);
+        });
+    </script>
     <div id="site-container"></div>
