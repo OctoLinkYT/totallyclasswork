@@ -15,9 +15,50 @@
             background-color: #f0f0f0;
         }
 
+        .taskbar {
+            background-color: rgba(128, 0, 128, 0.8); /* Purple color with slight transparency */
+            color: white;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            width: 100px; /* Width of the circle */
+            height: 100px; /* Height of the circle */
+            border-radius: 50%; /* Makes the taskbar circular */
+            top: 20px; /* Position from the top */
+            left: 20px; /* Position from the left */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .taskbar-logo {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .taskbar-nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .taskbar-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .taskbar-nav a:hover {
+            color: #d1e0e0;
+        }
+
         .card {
             background-color: #ffffff;
-            height: 100vh;
+            height: calc(100vh - 60px); /* Adjust height for taskbar */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -111,7 +152,24 @@
     </style>
 </head>
 <body>
-    <h2>All Games</h2>
+
+    <div class="taskbar">
+        <div class="taskbar-logo">My</div>
+        <div class="taskbar-nav">
+            <a href="/index.html">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <h1>All Games</h1>
+        <p class="card-text">Enjoy!</p>
+        <a href="/index.html" class="button-link">Home</a>
+        <p style="font-size: 16px; color: #555;">⬇ Scroll Down For All Our Games ⬇</p>
+    </div>
+
     <div id="site-container"></div>
 
     <script>
