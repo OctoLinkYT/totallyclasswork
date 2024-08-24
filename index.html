@@ -151,10 +151,174 @@
     50%{background-position:91% 100%}
     100%{background-position:10% 0%}
 }
+      
+
+      
+        .nav-bar {
+            background-color: rgba(138, 43, 226, 0.6); /* Increased transparency */
+            backdrop-filter: blur(10px); /* Stronger frosted glass effect */
+            border-radius: 20px;
+            padding: 8px 30px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: calc(100% - 60px);
+            max-width: 1000px;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000; /* Always on top */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-bar:hover {
+            transform: translate(-50%, -5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #D8BFD8;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #D8BFD8;
+            transform: scale(1.1);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 4px 8px;
+            margin-left: 30px;
+            width: 180px;
+            transition: width 0.3s ease;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 4px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+
+        .search-bar input::placeholder {
+            color: #8A2BE2;
+            font-style: italic;
+        }
+
+        .nav-bar {
+            background-color: rgba(138, 43, 226, 0.6); /* Increased transparency */
+            backdrop-filter: blur(10px); /* Stronger frosted glass effect */
+            border-radius: 20px;
+            padding: 8px 30px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: calc(100% - 60px);
+            max-width: 1000px;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000; /* Always on top */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-bar:hover {
+            transform: translate(-50%, -5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #D8BFD8;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #D8BFD8;
+            transform: scale(1.1);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 4px 8px;
+            margin-left: 30px;
+            width: 180px;
+            transition: width 0.3s ease;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 4px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+
+        .search-bar input::placeholder {
+            color: #8A2BE2;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
-
+    <div class="nav-bar">
+        <div class="logo" onclick="window.location.href='index.html'">@</div>
+        <div class="nav-links">
+            <a href="math.html">games</a>
+            <a href="apps.html">apps</a>
+            <a href="https://e.widgetbot.io/channels/1275596473605816425/1275596474071122073">discord</a>
+        </div>
+        <div class="search-bar">
+            <form action="math.html" method="GET">
+                <input type="text" placeholder="Search..." name="q">
+            </form>
+        </div>
+    </div>
     <div id="gradient" class="card">
         
         <h1 style="color: #ffffff;">g@len1te</h1>
@@ -164,8 +328,9 @@
         <br>
         <p style="font-size:32px; color:#ffffff;" >Scroll down to learn more...</p>
     </div>
-
-     <a style="text-align:center" href="/math.html" class="button-link">All Games</a>
-<br><h2 style="text-align:center"> WELCOME TO THE FUTURE.</h2><p style="text-align:center; "font-size:22px;">The games above are just the beginning. Step into a world without internet censorship. 
-    <br>Experience games, proxies, and more, with G@len1te. </p>
+<a style="text-align:center" href="/math.html" class="button-link">All Games</a><br>
+<h2 style="text-align:center"> WELCOME TO THE FUTURE.</h2>
+<p style="text-align:center; font-size:22px;"> The games above are just the beginning. Step into a world without internet censorship. <br>Experience games, proxies, and more, with G@len1te. </p>
     <div id="site-container"></div>
+  </body>
+</html>
