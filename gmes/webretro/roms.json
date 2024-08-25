@@ -7,6 +7,12 @@
       "system" : "snes"
     },
     {
+      "title" : "Pokemon: Fire Red",
+      "filename" : "Pokemon - Fire Red.gba",
+      "thumb" : "images.jpeg",
+      "system" : "gba"
+    },
+    {
       "title" : "Earthbound",
       "filename" : "earthbound.sfc",
       "thumb" : "earthbound.jpg",
@@ -79,7 +85,7 @@
       "system" : "snes"
     },
     {
-      "title" : "Mother 3 (no crying until the end)",
+      "title" : "Mother 3",
       "filename" : "mother3.zip",
       "thumb" : "mother3.png",
       "system" : "gba"
