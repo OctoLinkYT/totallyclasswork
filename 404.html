@@ -1,44 +1,230 @@
 <!doctype html>
-
-<html>
-  <head>
-    <title>Home</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
     <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/classroom/favicon.png">
-
     <style>
-      h1 { 
-        text-align: center;
-      }
-
-    p {
-      text-align: center;
-    }
-
-     .button-link {
+        body {
+            background-color: black;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            transition: opacity 0.5s ease;
+        }
+        h1 {
+            font-size: 20rem;
+            margin: 0;
+            color: #ff6347;
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
+        }
+        p {
+            font-size: 1.5rem;
+            margin-top: -30px;
+            margin-bottom: 30px;
+        }
+        .button-link {
             background-color: #03a5ad;
             color: white;
             padding: 15px 32px;
-            text-align: center;
             text-decoration: none;
-            display: inline-block;
             font-size: 16px; 
-            margin: 4px 2px; 
-            cursor: pointer;
             border: none;
             border-radius: 8px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        .button-link:hover {
+            background-color: #028a8f;
+        }
+        #subwaySurfersGame {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1000;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+            background-color: #fff; /* White background for the game */
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>4<span id="zero">0</span>4</h1>
+        <a href="/index.html" class="button-link">Home</a>
+    </div>
+
+    <div id="subwaySurfersGame">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+
+    <script>
+        function startGame() {
+            const gameDiv = document.getElementById('subwaySurfersGame');
+            const canvas = document.getElementById('gameCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Set canvas size to fullscreen
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let bird = { x: 50, y: canvas.height / 2, width: 40, height: 30, velocity: 0, gravity: 0.5, lift: -5 };
+            let pipes = [];
+            let score = 0;
+            let gameOver = false;
+            const pipeWidth = 50;
+            const pipeGap = 150;
+            let pipeSpeed = 6;
+
+            function createPipe() {
+                const pipeHeight = Math.random() * (canvas.height / 2 - 100) + 50;
+                pipes.push({ x: canvas.width, y: 0, width: pipeWidth, height: pipeHeight });
+                pipes.push({ x: canvas.width, y: pipeHeight + pipeGap, width: pipeWidth, height: canvas.height - pipeHeight - pipeGap });
+            }
+
+            function updatePipes() {
+                for (let i = 0; i < pipes.length; i++) {
+                    pipes[i].x -= pipeSpeed;
+
+                    if (pipes[i].x + pipes[i].width < 0) {
+                        pipes.splice(i, 2); // Remove both top and bottom pipes
+                        i--;
+                        score++;
+                        if (score % 5 === 0) {
+                            pipeSpeed += 0.5;
+                        }
+                    }
+                }
+            }
+
+            function drawBird() {
+                ctx.fillStyle = '#ff6347';
+                ctx.fillRect(bird.x, bird.y, bird.width, bird.height);
+            }
+
+            function drawPipes() {
+                ctx.fillStyle = '#228b22';
+                for (let i = 0; i < pipes.length; i++) {
+                    ctx.fillRect(pipes[i].x, pipes[i].y, pipes[i].width, pipes[i].height);
+                }
+            }
+
+            function drawScore() {
+                ctx.font = '30px Arial';
+                ctx.fillStyle = '#000';
+                ctx.fillText('Score: ' + score, 20, 50);
+            }
+
+            function drawGameOver() {
+                ctx.font = '50px Arial';
+                ctx.fillStyle = '#000';
+                ctx.fillText('Game Over', canvas.width / 2 - 150, canvas.height / 2);
+            }
+
+            function gameLoop() {
+                if (!gameOver) {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                    // Bird physics
+                    bird.velocity += bird.gravity;
+                    bird.y += bird.velocity;
+
+                    if (bird.y + bird.height > canvas.height) {
+                        bird.y = canvas.height - bird.height;
+                        bird.velocity = 0;
+                    } else if (bird.y < 0) {
+                        bird.y = 0;
+                        bird.velocity = 0;
+                    }
+
+                    drawBird();
+                    drawPipes();
+                    drawScore();
+
+                    if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 300) {
+                        createPipe();
+                    }
+
+                    updatePipes();
+
+                    // Check for collision with pipes
+                    for (let i = 0; i < pipes.length; i++) {
+                        if (
+                            bird.x < pipes[i].x + pipes[i].width &&
+                            bird.x + bird.width > pipes[i].x &&
+                            bird.y < pipes[i].y + pipes[i].height &&
+                            bird.y + bird.height > pipes[i].y
+                        ) {
+                            gameOver = true;
+                            // Show the original 404 page content and hide the game canvas
+                            gameDiv.style.display = 'none';
+                            document.querySelector('.container').style.opacity = '1';
+                            return; // Exit the game loop
+                        }
+                    }
+
+                    requestAnimationFrame(gameLoop);
+                } else {
+                    drawGameOver();
+                }
+            }
+
+            // Event listener for spacebar to flap
+            document.addEventListener('keydown', (e) => {
+                if (e.key === ' ' && !gameOver) {
+                    bird.velocity = bird.lift; // Flap
+                } else if (gameOver && e.key === ' ') {
+                    resetGame();
+                }
+            });
+
+            function resetGame() {
+                bird = { x: 50, y: canvas.height / 2, width: 40, height: 30, velocity: 0, gravity: 0.5, lift: -5 };
+                pipes = [];
+                score = 0;
+                gameOver = false;
+                pipeSpeed = 6; // Reset pipe speed
+                gameLoop();
+            }
+
+            // Hide the original 404 page content and start the game
+            document.querySelector('.container').style.opacity = '0';
+            setTimeout(() => {
+                gameDiv.style.display = 'block';
+                document.body.requestFullscreen().then(gameLoop);
+            }, 500);
         }
 
-      body { 
-        background-image: url('/sunback.jpg');
-      }
-    </style>
-  </head>
-  
-  <body>
-    <h1>This Page Was Not Found :(</h1>
-    <p>Try checking if you accidentally mistyped the link.<br><br></p>
-    <div style="text-align:center">
-      <a href="/index.html" class="button-link">Home</a>
-    </div>
-  </body>
+        // Event listener for clicking the zero
+        document.getElementById('zero').addEventListener('click', startGame);
+    </script>
+</body>
 </html>
